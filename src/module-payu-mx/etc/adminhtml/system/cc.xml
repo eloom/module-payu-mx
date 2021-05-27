@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+	<group id="eloom_payments_payu_cc" translate="label" type="text" sortOrder="1011" showInDefault="1" showInWebsite="1"
+	       showInStore="1">
+		<field id="months_without_interest_active" translate="label" type="select" sortOrder="20" showInDefault="21" showInWebsite="1" showInStore="0">
+			<label>Months without interest</label>
+			<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+			<config_path>payment/eloom_payments_payu_cc/months_without_interest_active</config_path>
+		</field>
+		<field id="months_without_interest" translate="label comment" type="select" sortOrder="21" showInDefault="1"
+		       showInWebsite="1" showInStore="0">
+			<label><![CDATA[Installments]]></label>
+			<source_model>Eloom\PayUMx\Block\Adminhtml\Config\Source\MonthsWithoutInterest</source_model>
+			<config_path>payment/eloom_payments_payu_cc/months_without_interest</config_path>
+			<depends>
+				<field id="months_without_interest_active">1</field>
+			</depends>
+			<comment>Contact your Account Manager or PayU Support.</comment>
+		</field>
+	</group>
+</include>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<type name="Eloom\PayUMx\Model\Ui\Oxxo\ConfigProvider">
+		<arguments>
+			<argument name="config" xsi:type="object">Eloom\PayU\Gateway\Config\Config</argument>
+			<argument name="oxxoConfig" xsi:type="object">Eloom\PayUMx\Gateway\Config\Oxxo\Config</argument>
+		</arguments>
+	</type>
+	<type name="Eloom\PayUMx\Model\Ui\SevenEleven\ConfigProvider">
+		<arguments>
+			<argument name="config" xsi:type="object">Eloom\PayU\Gateway\Config\Config</argument>
+			<argument name="sevenElevenConfig" xsi:type="object">Eloom\PayUMx\Gateway\Config\SevenEleven\Config</argument>
+		</arguments>
+	</type>
+
+	<type name="Magento\Checkout\Model\CompositeConfigProvider">
+		<arguments>
+			<argument name="configProviders" xsi:type="array">
+				<item name="eloom_payments_payu_oxxo_config_provider" xsi:type="object">
+					Eloom\PayUMx\Model\Ui\Oxxo\ConfigProvider
+				</item>
+				<item name="eloom_payments_payu_seveneleven_config_provider" xsi:type="object">
+					Eloom\PayUMx\Model\Ui\SevenEleven\ConfigProvider
+				</item>
+			</argument>
+		</arguments>
+	</type>
+</config>
