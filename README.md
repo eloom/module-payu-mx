@@ -1,4 +1,4 @@
-# PayU Mexico para (Magento 2)
+# PayU Mexico para Magento 2
 
 ## Licencia
 
@@ -15,5 +15,5 @@ Instale [PayU Latam](https://github.com/eloom/module-payu).
 * [Sitio web](https://eloom.tech/payu-latam)
 * [Documentación](https://docs.eloom.tech/payu-latam)
 * [Issue tracker](https://github.com/eloom/module-payu-mx/issues)
-* [Composer](https://packagist.org/packages/eloom/module-payu-mx)
+* [Composer](https://app.repman.io/organization/eloom/package/3267a692-08a8-46d3-8e16-1b5fb77be031/details)
 * [Codigo fuente](https://github.com/eloom/module-payu-mx)
