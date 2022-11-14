@@ -4,9 +4,9 @@
 * PayU Mexico para Magento 2
 * 
 * @category     elOOm
-* @package      Modulo PayUMx
+* @package      Modulo PayU Mexico
 * @copyright    Copyright (c) 2022 elOOm (https://eloom.tech)
-* @version      1.0.4
+* @version      1.0.5
 * @license      https://opensource.org/licenses/OSL-3.0
 * @license      https://opensource.org/licenses/AFL-3.0
 *
@@ -33,6 +33,8 @@ class ConfigProvider implements ConfigProviderInterface {
 
 	protected $storeManager;
 
+	private static $allowedCurrencies = ['MXN', 'USD'];
+
 	public function __construct(Repository              $assetRepo,
 	                            Escaper $escaper,
 	                            SevenElevenConfig $sevenElevenConfig,
@@ -50,7 +52,7 @@ class ConfigProvider implements ConfigProviderInterface {
 		$isActive = $this->config->isActive($storeId);
 		if ($isActive) {
 			$currency = $store->getCurrentCurrencyCode();
-			if ('MXN' != $currency) {
+			if (!in_array($currency, self::$allowedCurrencies)) {
 				return ['payment' => [
 					self::CODE => [
 						'message' =>  sprintf("Currency %s not supported.", $currency)
